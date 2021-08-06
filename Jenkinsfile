@@ -7,5 +7,22 @@ pipeline {
       }
     }
 
+    stage('Test') {
+      parallel {
+        stage('Test') {
+          steps {
+            echo 'I want to test.'
+          }
+        }
+
+        stage('Deploy') {
+          steps {
+            echo 'Deployed'
+          }
+        }
+
+      }
+    }
+
   }
 }
